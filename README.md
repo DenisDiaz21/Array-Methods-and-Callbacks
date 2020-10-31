@@ -23,7 +23,7 @@ Your goal today will be to manipulate the data using array methods and callbacks
 ```js
   {
       "Year": 1930,
-      "Datetime": "13 Jul 1930 - 15:00",
+      "Datetime": "13 Jul 1930 - 15:00   ",
       "Stage": "Group 1",
       "Stadium": "Pocitos",
       "City": "Montevideo",
