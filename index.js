@@ -114,25 +114,38 @@ Parameters:
  * callback function getYears
  */
 
-function getWinnersByYear(getWinnersCb, getYearsCb) {
-   getWinnersCb.forEach(e =>{
-        
-    })
+    function getWinnersByYear(getWinnersCb, getYearsCb) {
 
+      let stringLoop = getYearsCb.forEach(function(item, index){
+          console.log("In", item+",",getWinnersCb[index], "won the World Cup!");
+      })
 
-};
+      return stringLoop;
+}
 
-getWinnersByYear(getWinners(fifaData), getYears(fifaData));
+getWinnersByYear(getWinners(getFinals(fifaData)), getYears(getFinals(fifaData)));
 
 /* Task 6: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
-const averageGoals = 
 
 function getAverageGoals(data) {
-    data.reduce()
+    
+    let getHomeGoals = data.map(e => {return e["Home Team Goals"]})
+    let getAwayGoals = data.map(e => {return e["Away Team Goals"]})
+
+    const sum = getHomeGoals.reduce((acc, currVal) => acc + currVal);
+    let avgHomeGoals = sum/getHomeGoals.length;
+
+    const sum1 = getAwayGoals.reduce((acc, currVal) => acc + currVal);
+    let avgAwayGoals = sum1/getAwayGoals.length;
+    
+    return console.log("This is Average Home Goals: ", avgHomeGoals, "This is Average Away Goals:", avgAwayGoals)
+    // const sum = data.reduce((acc, currVal) => acc + currVal)
+    // console.log(sum)
+    // let avg = sum / data.length;
+    // return avg;
 };
 
-getAverageGoals();
-
+getAverageGoals(fifaData)
 /// STRETCH 🥅 //
 
 /* Stretch 1: Create a function called `getCountryWins` that takes the parameters `data` and `team initials` and returns the number of world cup wins that country has had. 
